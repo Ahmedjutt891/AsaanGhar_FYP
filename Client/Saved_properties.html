@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Saved Properties</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <!-- header section starts  -->
+   <header class="header">
+      <nav class="navbar nav-1">
+         <section class="flex">
+            <div class="logoandtext">
+               <a href="index.html" class="logo"><img src="./images/new-nav-logo-removebg-preview.png"
+                     class="new-logo-tag" alt=""> MyHome</a>
+            </div>
+            <div class="logoandtext">
+               <a href="dashboard/add-property.html" class="logo">post property<i class="fas fa-paper-plane"></i></a>
+            </div>
+         </section>
+      </nav>
+
+      <nav class="navbar nav-2">
+         <section class="flex">
+            <div id="menu-btn" class="fas fa-bars"></div>
+
+            <div class="menu">
+               <ul>
+                  <li><a href="#">post property</a></li>
+                  <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="contact.html">contact us</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+
+            <ul>
+               <li><a href="#" class="active">saved <i class="far fa-heart"></i></a></li>
+               <li><a href="#">account <i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="login.html">login</a></li>
+                     <li><a href="register.html">register</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </section>
+      </nav>
+   </header>
+   <!-- header section ends -->
+
+   <!-- saved properties section starts  -->
+   <section class="listings">
+      <h1 class="heading">saved properties</h1>
+      <div class="box-container" id="saved-properties-container">
+         <!-- Properties will be loaded here by JavaScript -->
+      </div>
+   </section>
+   <!-- saved properties section ends -->
+
+   <!-- footer section starts  -->
+   <footer class="footer">
+      <section class="flex">
+         <div class="box">
+            <a href="tel:1234567890"><i class="fas fa-phone"></i><span>123456789</span></a>
+            <a href="tel:1112223333"><i class="fas fa-phone"></i><span>1112223333</span></a>
+            <a href="mailto:shaikhanas@gmail.com"><i class="fas fa-envelope"></i><span>mtoori@gmail.com</span></a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i><span>Rawalpindi, Pakistan</span></a>
+         </div>
+
+         <div class="box">
+            <a href="index.html"><span>home</span></a>
+            <a href="about.html"><span>about</span></a>
+            <a href="contact.html"><span>contact</span></a>
+            <a href="listings.html"><span>all listings</span></a>
+            <a href="#"><span>saved properties</span></a>
+         </div>
+
+         <div class="box">
+            <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+            <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+            <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+         </div>
+      </section>
+   </footer>
+   <!-- footer section ends -->
+
+   <!-- custom js file link  -->
+   <script src="js/script.js"></script>
+
+   <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+         try {
+            // Fetch saved properties from the backend
+            const response = await fetch('http://localhost:3000/api/saved-properties', {
+               credentials: 'include' // Include credentials for authenticated requests
+            });
+            
+            if (!response.ok) {
+               throw new Error('Failed to fetch saved properties');
+            }
+
+            const properties = await response.json();
+            const container = document.getElementById('saved-properties-container');
+            
+            if (properties.length === 0) {
+               container.innerHTML = `
+                  <div class="empty-state">
+                     <i class="far fa-heart" style="font-size: 48px; color: #666; margin-bottom: 20px;"></i>
+                     <h3>No Saved Properties</h3>
+                     <p>Properties you save will appear here</p>
+                     <a href="listings.html" class="btn">Browse Properties</a>
+                  </div>
+               `;
+               return;
+            }
+
+            // Generate HTML for each saved property
+            properties.forEach(property => {
+               const propertyElement = `
+                  <div class="box" data-property-id="${property._id}">
+                     <div class="admin">
+                        <h3>${property.owner.charAt(0).toUpperCase()}</h3>
+                        <div>
+                           <p>${property.owner}</p>
+                           <span>${new Date(property.date).toLocaleDateString()}</span>
+                        </div>
+                     </div>
+                     <div class="thumb">
+                        <p class="total-images"><i class="far fa-image"></i><span>${property.images.length}</span></p>
+                        <p class="type"><span>${property.type}</span><span>${property.status}</span></p>
+                        <button class="remove-saved" onclick="removeFromSaved('${property._id}')">
+                           <i class="fas fa-heart"></i>
+                        </button>
+                        <img src="http://localhost:3000/${property.images[0]}" alt="Property Image">
+                     </div>
+                     <h3 class="name">${property.title}</h3>
+                     <p class="location"><i class="fas fa-map-marker-alt"></i><span>${property.location}</span></p>
+                     <div class="flex">
+                        <p><i class="fas fa-bed"></i> <span class="cards-icons">${property.rooms}</span></p>
+                        <p><i class="fas fa-bath"></i> <span class="cards-icons">${property.bathrooms}</span></p>
+                        <p><i class="fas fa-maximize"></i> <span class="cards-icons">${property.area} sqft</span></p>
+                     </div>
+                     <a href="view_property.html?id=${property._id}" class="btn">View Property</a>
+                  </div>
+               `;
+               container.innerHTML += propertyElement;
+            });
+         } catch (error) {
+            console.error('Error fetching saved properties:', error);
+            document.getElementById('saved-properties-container').innerHTML = `
+               <div class="error-state">
+                  <p>Error loading saved properties. Please try again later.</p>
+               </div>
+            `;
+         }
+      });
+
+      // Function to remove property from saved list
+      async function removeFromSaved(propertyId) {
+         try {
+            const response = await fetch(`http://localhost:3000/api/saved-properties/${propertyId}`, {
+               method: 'DELETE',
+               credentials: 'include'
+            });
+
+            if (!response.ok) {
+               throw new Error('Failed to remove property');
+            }
+
+            // Remove the property element from the DOM
+            const propertyElement = document.querySelector(`[data-property-id="${propertyId}"]`);
+            if (propertyElement) {
+               propertyElement.remove();
+            }
+
+            // Check if there are any properties left
+            const container = document.getElementById('saved-properties-container');
+            if (container.children.length === 0) {
+               container.innerHTML = `
+                  <div class="empty-state">
+                     <i class="far fa-heart" style="font-size: 48px; color: #666; margin-bottom: 20px;"></i>
+                     <h3>No Saved Properties</h3>
+                     <p>Properties you save will appear here</p>
+                     <a href="listings.html" class="btn">Browse Properties</a>
+                  </div>
+               `;
+            }
+         } catch (error) {
+            console.error('Error removing property:', error);
+            alert('Failed to remove property. Please try again.');
+         }
+      }
+   </script>
+</body>
+</html>

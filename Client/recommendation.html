@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Recommendation Page</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   
+<!-- header section starts  -->
+<header class="header">
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <div class="logoandtext">
+            <a href="index.html" class="logo"><img src="./images/new-nav-logo-removebg-preview.png" class="new-logo-tag" alt=""> MyHome</a>
+         </div>
+      </section>
+   </nav>
+</header>
+<!-- header section ends -->
+
+<!-- recommendation section starts  -->
+<section class="recommendation">
+   <h1 class="heading">Recommendation System</h1>
+
+   <div class="form-container">
+      <form id="recommendationForm">
+         <input type="text" id="propertyId" placeholder="Enter Property ID" required>
+         <button type="submit" class="btn">Get Recommendations</button>
+      </form>
+   </div>
+
+   <div class="box-container" id="recommendationResults">
+      <!-- Recommended properties will be displayed here -->
+   </div>
+</section>
+<!-- recommendation section ends -->
+
+<!-- footer section starts  -->
+<footer class="footer">
+   <section class="flex">
+      <div class="box">
+         <a href="tel:1234567890"><i class="fas fa-phone"></i><span>123456789</span></a>
+         <a href="tel:1112223333"><i class="fas fa-phone"></i><span>1112223333</span></a>
+         <a href="mailto:shaikhanas@gmail.com"><i class="fas fa-envelope"></i><span>mtoori@gmail.com</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>Rawalpindi ,Pakistan </span></a>
+      </div>
+
+      <div class="box">
+         <a href="index.html"><span>home</span></a>
+         <a href="about.html"><span>about</span></a>
+         <a href="contact.html"><span>contact</span></a>
+         <a href="listings.html"><span>all listings</span></a>
+         <a href="#"><span>saved properties</span></a>
+      </div>
+
+      <div class="box">
+         <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+      </div>
+   </section>
+</footer>
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script>
+   document.getElementById('recommendationForm').addEventListener('submit', async (event) => {
+       event.preventDefault();
+       const propertyId = document.getElementById('propertyId').value;
+       const recommendationResults = document.getElementById('recommendationResults');
+       recommendationResults.innerHTML = ''; // Clear existing content
+
+       try {
+           const response = await fetch(`http://localhost:3000/api/recommendations/${propertyId}`);
+           if (!response.ok) {
+               throw new Error('Failed to fetch recommendations');
+           }
+           const recommendations = await response.json();
+           recommendations.forEach(property => {
+               const html = `
+               <div class="box">
+                   <h3 class="name">${property.title}</h3>
+                   <p class="location"><i class="fas fa-map-marker-alt"></i><span>${property.location}</span></p>
+                   <div class="flex">
+                       <p><i class="fas fa-bed"><span class="cards-icons">${property.bedrooms}</span></i></p>
+                       <p><i class="fas fa-bath"><span class="cards-icons">${property.bathrooms}</span></i></p>
+                       <p><i class="fas fa-maximize"><span class="cards-icons">${property.area} sqft</span></i></p>
+                   </div>
+                   <a href="view_property.html?id=${property._id}" class="btn">View Property</a>
+               </div>
+               `;
+               recommendationResults.innerHTML += html;
+           });
+       } catch (error) {
+           console.error('Error fetching recommendations:', error.message);
+           // Handle error (show error message, log, etc.)
+       }
+   });
+</script>
+</body>
+</html>

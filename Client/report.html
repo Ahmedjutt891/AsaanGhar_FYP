@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Report Content</title>
+
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="./css/style.css">
+
+   <!-- Custom CSS for Report Page -->
+   <link rel="stylesheet" href="./css/style/report.css">
+
+   <!-- Google Fonts - Open Sans -->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+   <!-- Header Section -->
+   <header class="header">
+      <!-- Navigation -->
+      <nav class="navbar">
+         <div class="container">
+            <div class="logo">
+               <a href="index.html"><img src="./images/new-nav-logo-removebg-preview.png" alt="MyHome Logo"></a>
+            </div>
+            <ul class="nav-links">
+               <li><a href="#">Home</a></li>
+               <li><a href="#">Buy</a></li>
+               <li><a href="#">Sell</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+
+   <!-- Main Section -->
+   <main class="main-content">
+      <section class="report-content">
+         <div class="container">
+            <h1 class="heading">Report Content</h1>
+
+            <!-- Report Form -->
+            <form id="reportForm" class="report-form">
+               <div class="form-group">
+                  <label for="name">Your Name <span>*</span></label>
+                  <input type="text" id="name" name="name" required placeholder="Enter your name">
+               </div>
+
+               <div class="form-group">
+                  <label for="email">Your Email <span>*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="Enter your email">
+               </div>
+
+               <div class="form-group">
+                  <label for="subject">Subject <span>*</span></label>
+                  <input type="text" id="subject" name="subject" required placeholder="Subject of Report">
+               </div>
+
+               <div class="form-group">
+                  <label for="message">Message <span>*</span></label>
+                  <textarea id="message" name="message" required placeholder="Describe the issue or report"></textarea>
+               </div>
+
+               <button type="submit" class="btn">Submit Report</button>
+            </form>
+         </div>
+      </section>
+   </main>
+
+   <!-- Footer Section -->
+   <footer class="footer">
+
+      <section class="flex">
+   
+         <div class="box">
+            <a href="tel:1234567890"><i class="fas fa-phone"></i><span>123456789</span></a>
+            <a href="tel:1112223333"><i class="fas fa-phone"></i><span>1112223333</span></a>
+            <a href="mailto:shaikhanas@gmail.com"><i class="fas fa-envelope"></i><span>mtoori@gmail.com</span></a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i><span>rawalpindi , pakistan</span></a>
+         </div>
+   
+         <div class="box">
+            <a href="index.html"><span>home</span></a>
+            <a href="about.html"><span>about</span></a>
+            <a href="contact.html"><span>contact</span></a>
+            <a href="listings.html"><span>all listings</span></a>
+            <a href="#"><span>saved properties</span></a>
+         </div>
+   
+         <div class="box">
+            <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+            <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+            <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+   
+      </section>
+
+   <!-- JavaScript for Form Submission -->
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         const form = document.getElementById('reportForm');
+
+         form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            try {
+               const formData = new FormData(form);
+               const response = await fetch('http://localhost:3000/api/report', {
+                  method: 'POST',
+                  body: formData
+               });
+
+               if (!response.ok) {
+                  throw new Error('Failed to submit report');
+               }
+
+               const report = await response.json(); // Assuming your backend returns confirmation data
+               alert('Report submitted successfully:', report);
+               // Optionally, you can redirect or show a success message here
+            } catch (error) {
+               console.error('Error submitting report:', error.message);
+               // Handle error (show error message, log, etc.)
+            }
+         });
+      });
+   </script>
+
+
+   
+
+</body>
+
+</html>

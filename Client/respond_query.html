@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header"> 
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <div class="logoandtext">
+            <a href="index.html" class="logo"><img src="./images/new-nav-logo-removebg-preview.png" class="new-logo-tag" alt=""> MyHome</a>
+         </div>
+         
+         <div class="">
+            <ul>
+               <li class="post-propert-btn"><a href="post_property.html">post property<i class="fas fa-paper-plane"></i></a></li>
+            </ul>
+         </div>
+         <div class="">
+            <ul>
+               <li class="reportcontent-btn"><a href="report.html">report-content<i class=""></i></a></li>
+            </ul>
+         </div>
+         
+      </section>
+   </nav>
+   <nav class="navbar nav-2">
+      <section class="flex nav-2-section">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul class="nav-2-ul">
+               <li class="nav-2-li"><a class=" nav-2-li-a" href="#">buy<i class="fas fa-angle-down"></i></a>
+                  <ul class="nav-2-sub_ul">
+                     <!-- <li class="nav-2-sub_li" ><a href="#">house</a></li>  -->
+                     <li class="nav-2-sub_li"><a href="#">furnished</a></li>
+                     <li class="nav-2-sub_li"><a href="#">not furnished</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="post_property.html">post property</a></li>
+                     <li><a href="post_property.html">dashboard</a></li>
+                  </ul>
+               </li>
+               
+               <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="about.html">about us</a></i></li>
+                     <li><a href="contact.html">contact us</a></i></li>
+                     <li><a href="contact.html#faq">FAQ</a></i></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="dashboard/saved.html">saved <i class="far fa-heart"></i></a></li>
+            <li><a href="#">account <i class="fas fa-angle-down"></i></a>
+            <div>
+            </div>
+              
+               <ul>
+                  <li><a href="login.html">login</a></li>
+                  <li><a href="register.html">register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+   
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+ <!-- Main Section -->
+ <main class="Center">
+    <section class="listings">
+     
+        <div class="box-container">
+     
+       <div class="container">
+          <!-- Queries List -->
+          <div class="queries-list">
+            <div class="box">
+            <div class="query">
+                   <div>
+                    <h2>Query Title 1</h2>
+                    <p><strong>From:</strong> user2@example.com</p>
+                    <p><strong>Date:</strong> July 16, 2024</p>
+                    <p><strong>Query:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                   </div>
+             </div>
+
+             <div class="query">
+                <div>
+                 <h2>Query Title 2</h2>
+                 <p><strong>From:</strong> user2@example.com</p>
+                 <p><strong>Date:</strong> July 16, 2024</p>
+                 <p><strong>Query:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                </div>
+          </div>
+          
+          <div class="query">
+            <div>
+             <p><h2>Query Title 3</h2>
+             <p><strong>From:</strong> user2@example.com</p>
+             <p><strong>Date:</strong> July 16, 2024</p>
+             <p><strong>Query:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+      </div>
+    
+            
+             <!-- Add more queries as needed -->
+          </div>
+
+          <!-- Response Form -->
+          <div id="responseFormContainer" class="response-form-container hidden">
+             <form id="responseForm" class="response-form">
+
+                <h1 class="form-heading">Respond to Query</h1>
+
+                <div class="box">
+                    <h3>Query No <span>*</span></h3>
+                    <input type="email" name="email" required maxlength="50" placeholder="Enter title number..." class="">
+                </div>
+
+                <div class="box">
+                   <h3>User Email <span>*</span></h3>
+                   <input type="text" name="location" required maxlength="100" placeholder="Enter users email..." class="">
+                 </div>
+
+                <div class="box">
+                    <h3>Enter your response <span>*</span></h3>
+                    <input type="text" name="location" required maxlength="100" placeholder="Enter your response..." class="">
+                </div>
+                <button type="submit" class="btn">Send Response</button>
+             </form>
+          </div>
+       </div>
+    </section>
+ </main>
+
+</footer>
+
+<!-- footer section ends -->
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var navbar = document.querySelector('.navbar.nav-2');
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 0) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+});
+
+</script> -->  
+
+
+</body>
+</html>

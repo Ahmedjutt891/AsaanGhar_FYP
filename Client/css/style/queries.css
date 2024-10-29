@@ -1,0 +1,68 @@
+/* queries.css */
+.queries-content {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.query {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.query h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.query p {
+    margin: 5px 0;
+}
+
+.respond-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.response-form-container {
+    display: none;
+}
+
+.response-form-container.hidden {
+    display: none;
+}
+
+.response-form {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[readonly] {
+    background-color: #f9f9f9;
+}
+
+.btn.cancel-btn {
+    background-color: #dc3545;
+    margin-left: 10px;
+}

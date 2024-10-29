@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dashboard</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   <style>
+      /* Additional styles for the dashboard page */
+      .dashboard {
+         padding: 2rem;
+         background-color: #f0f0f0;
+      }
+
+      .dashboard-heading {
+         font-size: 2rem;
+         margin-bottom: 1rem;
+      }
+
+      .dashboard-section {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+      }
+
+      .dashboard-box {
+         background-color: #fff;
+         padding: 1.5rem;
+         margin-bottom: 1.5rem;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         border-radius: 5px;
+         width: calc(33.33% - 1rem);
+      }
+
+      .dashboard-box h3 {
+         font-size: 1.5rem;
+         margin-bottom: 1rem;
+      }
+
+      .dashboard-box p {
+         color: #666;
+         line-height: 1.6;
+      }
+   </style>
+</head>
+<body>
+   
+<header class="header"> 
+   <!-- Your header content here -->
+</header>
+
+<div class="dashboard">
+
+   <h1 class="dashboard-heading">Dashboard</h1>
+
+   <div class="dashboard-section">
+
+      <div class="dashboard-box">
+         <h3>Property Listings</h3>
+         <p>Manage your property listings, view, edit, or delete properties.</p>
+         <a href="#" class="btn">Manage Listings</a>
+      </div>
+
+      <div class="dashboard-box">
+         <h3>Saved Properties</h3>
+         <p>View properties you've saved for later.</p>
+         <a href="#" class="btn">View Saved</a>
+      </div>
+
+      <div class="dashboard-box">
+         <h3>Reports</h3>
+         <p>View and manage reported content and user queries.</p>
+         <a href="#" class="btn">Manage Reports</a>
+      </div>
+
+      <div class="dashboard-box">
+         <h3>User Management</h3>
+         <p>Manage users, permissions, and access levels.</p>
+         <a href="#" class="btn">Manage Users</a>
+      </div>
+
+      <div class="dashboard-box">
+         <h3>Settings</h3>
+         <p>Update your account settings and preferences.</p>
+         <a href="#" class="btn">Account Settings</a>
+      </div>
+
+   </div>
+
+</div>
+
+<footer class="footer">
+   <!-- Your footer content here -->
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

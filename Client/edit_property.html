@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Edit Property</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./css/style/edit_property.css">
+
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         background-color: #f9f9f9;
+      }
+
+      .header {
+         background-color: #4CAF50;
+         padding: 10px 20px;
+         color: white;
+         text-align: center;
+      }
+
+      .edit-property {
+         max-width: 800px;
+         margin: 20px auto;
+         padding: 20px;
+         background-color: white;
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .edit-property h1 {
+         text-align: center;
+         margin-bottom: 20px;
+         color: #333;
+      }
+
+      .box-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         gap: 15px;
+      }
+
+      .box {
+         flex: 1 1 calc(50% - 10px);
+         min-width: 250px;
+         margin-bottom: 15px;
+      }
+
+      .box p {
+         margin-bottom: 5px;
+         font-weight: bold;
+      }
+
+      .input, .btn {
+         width: 100%;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         font-size: 16px;
+      }
+
+      .input:focus {
+         border-color: #4CAF50;
+         outline: none;
+      }
+
+      .btn {
+         background-color: #4CAF50;
+         color: white;
+         border: none;
+         cursor: pointer;
+         transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+         background-color: #45a049;
+      }
+
+      .checkbox-group {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 10px;
+      }
+
+      .checkbox-group label {
+         cursor: pointer;
+      }
+
+      .footer {
+         background-color: #4CAF50;
+         color: white;
+         text-align: center;
+         padding: 15px;
+         position: relative;
+         bottom: 0;
+         width: 100%;
+      }
+
+      @media (max-width: 600px) {
+         .box {
+            flex: 1 1 100%;
+         }
+      }
+   </style>
+</head>
+
+<body>
+
+   <!-- header section starts  -->
+   <header class="header">
+      <h1>MyHome</h1>
+      <nav>
+         <ul>
+            <li><a href="#" style="color: white;">Edit Property <i class="fas fa-edit"></i></a></li>
+         </ul>
+      </nav>
+   </header>
+   <!-- header section ends -->
+
+   <!-- edit property section starts  -->
+   <section class="edit-property">
+      <h1>Edit Property</h1>
+
+      <form id="editPropertyForm" enctype="multipart/form-data">
+         <div class="box-container">
+            <div class="box">
+               <p>Property Title <span>*</span></p>
+               <input type="text" name="title" placeholder="Enter property title" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Location <span>*</span></p>
+               <input type="text" name="location" placeholder="Enter property location" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Price <span>*</span></p>
+               <input type="text" name="price" placeholder="Enter property price" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Owner Name <span>*</span></p>
+               <input type="text" name="owner" placeholder="Enter owner name" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Owner Contact <span>*</span></p>
+               <input type="text" name="contact" placeholder="Enter owner contact" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Property Type <span>*</span></p>
+               <select name="type" class="input" required>
+                  <option value="" disabled selected>Select type</option>
+                  <option value="house">House</option>
+                  <option value="flat">Flat</option>
+                  <option value="plot">Plot</option>
+               </select>
+            </div>
+
+            <div class="box">
+               <p>Property Status <span>*</span></p>
+               <select name="status" class="input" required>
+                  <option value="" disabled selected>Select status</option>
+                  <option value="sale">Sale</option>
+                  <option value="rent">Rent</option>
+               </select>
+            </div>
+
+            <div class="box">
+               <p>Date <span>*</span></p>
+               <input type="date" name="date" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Rooms <span>*</span></p>
+               <input type="text" name="rooms" placeholder="Enter number of rooms" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Bathrooms <span>*</span></p>
+               <input type="text" name="bathrooms" placeholder="Enter number of bathrooms" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Balconies <span>*</span></p>
+               <input type="text" name="balconies" placeholder="Enter number of balconies" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Carpet Area (sqft) <span>*</span></p>
+               <input type="text" name="area" placeholder="Enter carpet area in sqft" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Furnishing <span>*</span></p>
+               <select name="furnishing" class="input" required>
+                  <option value="" disabled selected>Select furnishing</option>
+                  <option value="furnished">Furnished</option>
+                  <option value="semi-furnished">Semi-Furnished</option>
+                  <option value="unfurnished">Unfurnished</option>
+               </select>
+            </div>
+
+            <div class="box">
+               <p>Description <span>*</span></p>
+               <textarea name="description" placeholder="Enter property description" class="input" required></textarea>
+            </div>
+
+            <div class="box">
+               <p>Amenities <span>*</span></p>
+               <div class="checkbox-group">
+                  <label><input type="checkbox" name="amenities[]" value="lifts"> Lifts</label>
+                  <label><input type="checkbox" name="amenities[]" value="security"> Security Guards</label>
+                  <label><input type="checkbox" name="amenities[]" value="playground"> Play Ground</label>
+                  <label><input type="checkbox" name="amenities[]" value="gardens"> Gardens</label>
+                  <label><input type="checkbox" name="amenities[]" value="water-supply"> Water Supply</label>
+                  <label><input type="checkbox" name="amenities[]" value="power-backup"> Power Backup</label>
+                  <label><input type="checkbox" name="amenities[]" value="parking"> Parking Area</label>
+                  <label><input type="checkbox" name="amenities[]" value="gym"> Gym</label>
+                  <label><input type="checkbox" name="amenities[]" value="shopping-mall"> Shopping Mall</label>
+                  <label><input type="checkbox" name="amenities[]" value="hospital"> Hospital</label>
+                  <label><input type="checkbox" name="amenities[]" value="schools"> Schools</label>
+                  <label><input type="checkbox" name="amenities[]" value="market-area"> Market Area</label>
+               </div>
+            </div>
+
+            <div class="box">
+               <p>Upload Images <span>*</span></p>
+               <input type="file" name="images" multiple class="input" accept="image/*">
+            </div>
+
+            <div class="box">
+               <p>Upload 3D Footage</p>
+               <input type="file" name="footage" class="input" accept=".mp4,.obj,.fbx,.3ds">
+            </div>
+         </div>
+
+         <button type="submit" class="btn">Update Property</button>
+      </form>
+   </section>
+   <!-- edit property section ends -->
+
+   <!-- footer section starts  -->
+   <footer class="footer">
+      <p>&copy; 2024 MyHome. All rights reserved.</p>
+   </footer>
+   <!-- footer section ends -->
+
+   <script>
+      // Fetch the property data using its ID from the URL or other means
+      const propertyId = /* logic to get property ID */
+      fetch(`your-api-endpoint/${propertyId}`)
+         .then(response => response.json())
+         .then(data => {
+            // Populate the form with existing data
+            document.querySelector('[name="title"]').value = data.title;
+            document.querySelector('[name="location"]').value = data.location;
+            document.querySelector('[name="price"]').value = data.price;
+            document.querySelector('[name="owner"]').value = data.owner;
+            document.querySelector('[name="contact"]').value = data.contact;
+            document.querySelector('[name="type"]').value = data.type;
+            document.querySelector('[name="status"]').value = data.status;
+            document.querySelector('[name="date"]').value = data.date.split('T')[0]; // Handle date format
+            document.querySelector('[name="rooms"]').value = data.rooms;
+            document.querySelector('[name="bathrooms"]').value = data.bathrooms;
+            document.querySelector('[name="balconies"]').value = data.balconies;
+            document.querySelector('[name="area"]').value = data.area;
+            document.querySelector('[name="furnishing"]').value = data.furnishing;
+            document.querySelector('[name="description"]').value = data.description;
+
+            const amenities = data.amenities || [];
+            amenities.forEach(amenity => {
+               const checkbox = document.querySelector(`input[name="amenities[]"][value="${amenity}"]`);
+               if (checkbox) {
+                  checkbox.checked = true;
+               }
+            });
+         })
+         .catch(err => console.error('Error fetching property data:', err));
+
+      document.getElementById('editPropertyForm').addEventListener('submit', function (event) {
+         event.preventDefault();
+         // Add logic to submit the form and update the property
+      });
+   </script>
+</body>
+
+</html>

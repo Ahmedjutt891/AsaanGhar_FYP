@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Recommendation</title>
+</head>
+<body>
+    <h1>Property Recommendation System</h1>
+    <form id="recommendation-form">
+        <label for="propertyId">Enter Property ID:</label>
+        <input type="text" id="propertyId" name="propertyId" required>
+        <button type="submit">Get Recommendation</button>
+    </form>
+    <div id="recommendations"></div>
+
+    <script>
+        document.getElementById('recommendation-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const propertyId = document.getElementById('propertyId').value;
+            fetch('/recommendations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ propertyId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const recommendationsDiv = document.getElementById('recommendations');
+                recommendationsDiv.innerHTML = '<h2>Recommendations:</h2>';
+                data.recommendations.forEach(recommendation => {
+                    recommendationsDiv.innerHTML += `<p>Property ID: ${recommendation[0]}, Similarity Distance: ${recommendation[1]}</p>`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

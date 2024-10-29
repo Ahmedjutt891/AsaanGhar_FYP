@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Post Property</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="./css/style.css">
+
+   <link rel="stylesheet" href="./css/style/post_property.css">
+
+</head>
+
+<body>
+
+   <!-- header section starts  -->
+
+   <header class="header">
+
+      <nav class="navbar nav-1">
+         <section class="flex">
+            <div class="logoandtext">
+               <a href="index.html" class="logo"><img src="./images/new-nav-logo-removebg-preview.png"
+                     class="new-logo-tag" alt=""> MyHome</a>
+            </div>
+
+            <div class="">
+               <ul>
+                  <li><a href="#">post property<i class="fas fa-paper-plane"></i></a></li>
+               </ul>
+            </div>
+
+         </section>
+      </nav>
+
+      <nav class="navbar nav-2">
+         <section class="flex">
+            <div id="menu-btn" class="fas fa-bars"></div>
+
+            <div class="menu">
+               <ul>
+                  <li><a href="#">buy<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                        <li><a href="#">furnished</a></li>
+                        <li><a href="#">ready to move</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#">sell<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                        <li><a href="dashboard/add-property.html">post property</a></li>
+                        <li><a href="#">dashboard</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="contact.html">contact us</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+
+            <ul>
+               <li><a href="#">saved <i class="far fa-heart"></i></a></li>
+               <li><a href="#">account <i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="login.html">login</a></li>
+                     <li><a href="register.html">register</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </section>
+      </nav>
+
+   </header>
+
+   <!-- header section ends -->
+
+   <!-- post property section starts  -->
+
+   <section class="post-property">
+
+      <h1 class="heading">Post a Property</h1>
+
+      <form id="postPropertyForm" enctype="multipart/form-data">
+         <div class="box-container">
+
+            <div class="box">
+               <p>Property Title <span>*</span></p>
+               <input type="text" name="title" placeholder="Enter property title" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Location <span>*</span></p>
+               <input type="text" name="location" placeholder="Enter property location" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Price <span>*</span></p>
+               <input type="text" name="price" placeholder="Enter property price" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Owner Name <span>*</span></p>
+               <input type="text" name="owner" placeholder="Enter owner name" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Owner Contact <span>*</span></p>
+               <input type="text" name="contact" placeholder="Enter owner contact" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Property Type <span>*</span></p>
+               <select name="type" class="input">
+                  <option value="" disabled selected>Select type</option>
+                  <option value="house">House</option>
+                  <option value="flat">Flat</option>
+                  <option value="plot">Plot</option>
+               </select>
+            </div>
+
+            <div class="box">
+               <p>Property Status <span>*</span></p>
+               <select name="status" class="input">
+                  <option value="" disabled selected>Select status</option>
+                  <option value="sale">Sale</option>
+                  <option value="rent">Rent</option>
+               </select>
+            </div>
+
+            <div class="box">
+               <p>Date <span>*</span></p>
+               <input type="date" name="date" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Rooms <span>*</span></p>
+               <input type="text" name="rooms" placeholder="Enter number of rooms" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Bathrooms <span>*</span></p>
+               <input type="text" name="bathrooms" placeholder="Enter number of bathrooms" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Balconies <span>*</span></p>
+               <input type="text" name="balconies" placeholder="Enter number of balconies" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Carpet Area (sqft) <span>*</span></p>
+               <input type="text" name="area" placeholder="Enter carpet area in sqft" class="input" required>
+            </div>
+
+            <div class="box">
+               <p>Furnishing <span>*</span></p>
+               <select name="furnishing" class="input" required>
+                  <option value="" disabled selected>Select furnishing</option>
+                  <option value="furnished">Furnished</option>
+                  <option value="semi-furnished">Semi-Furnished</option>
+                  <option value="unfurnished">Unfurnished</option>
+               </select>
+            </div>
+
+            <div class="box">
+               <p>Description <span>*</span></p>
+               <textarea name="description" placeholder="Enter property description" class="input" required></textarea>
+            </div>
+
+            <div class="box">
+               <p>Amenities <span>*</span></p>
+               <div class="checkbox-group">
+                  <label><input type="checkbox" name="amenities[]" value="lifts"> Lifts</label>
+                  <label><input type="checkbox" name="amenities[]" value="security"> Security Guards</label>
+                  <label><input type="checkbox" name="amenities[]" value="playground"> Play Ground</label>
+                  <label><input type="checkbox" name="amenities[]" value="gardens"> Gardens</label>
+                  <label><input type="checkbox" name="amenities[]" value="water-supply"> Water Supply</label>
+                  <label><input type="checkbox" name="amenities[]" value="power-backup"> Power Backup</label>
+                  <label><input type="checkbox" name="amenities[]" value="parking"> Parking Area</label>
+                  <label><input type="checkbox" name="amenities[]" value="gym"> Gym</label>
+                  <label><input type="checkbox" name="amenities[]" value="shopping-mall"> Shopping Mall</label>
+                  <label><input type="checkbox" name="amenities[]" value="hospital"> Hospital</label>
+                  <label><input type="checkbox" name="amenities[]" value="schools"> Schools</label>
+                  <label><input type="checkbox" name="amenities[]" value="market-area"> Market Area</label>
+               </div>
+            </div>
+
+            <div class="box">
+               <p>Upload Images <span>*</span></p>
+               <input type="file" name="images" multiple class="input" accept="image/*" required>
+            </div>
+
+            <div class="box">
+               <p>Upload 3D Footage</p>
+               <input type="file" name="footage" class="input" accept=".mp4,.obj,.fbx,.gltf,.glb,.stl,.ply">
+               <small>Supported formats: MP4, OBJ, FBX, GLTF, GLB, STL, PLY</small>
+            </div>
+
+
+         </div>
+
+         <input type="submit" value="Post Property" class="btn">
+      </form>
+
+   </section>
+
+   <!-- post property section ends -->
+
+   <!-- footer section starts  -->
+
+   <footer class="footer">
+
+      <section class="flex">
+
+         <div class="box">
+            <a href="tel:1234567890"><i class="fas fa-phone"></i><span>123456789</span></a>
+            <a href="tel:1112223333"><i class="fas fa-phone"></i><span>1112223333</span></a>
+            <a href="mailto:shaikhanas@gmail.com"><i class="fas fa-envelope"></i><span>mtoori@gmail.com</span></a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i><span>rawalpindi , pakistan</span></a>
+         </div>
+
+         <div class="box">
+            <a href="index.html"><span>home</span></a>
+            <a href="about.html"><span>about</span></a>
+            <a href="contact.html"><span>contact</span></a>
+            <a href="listings.html"><span>all listings</span></a>
+            <a href="#"><span>saved properties</span></a>
+         </div>
+
+         <div class="box">
+            <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+            <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+            <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+
+      </section>
+
+      <div class="credit">&copy; 2023 <span>Mr. Tayyab</span> | All Rights Reserved!</div>
+
+   </footer>
+
+   <!-- footer section ends -->
+
+   <script>
+      const form = document.getElementById('postPropertyForm');
+      // Check if a property ID is provided in the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const propertyId = urlParams.get('id');
+
+
+      document.addEventListener('DOMContentLoaded', async () => {
+
+         // If a property ID exists, fetch its details and populate the form
+         if (propertyId) {
+            try {
+               const response = await fetch(`http://localhost:3000/api/property/${propertyId}`);
+               if (!response.ok) {
+                  throw new Error('Failed to fetch property data');
+               }
+               const property = await response.json();
+
+               // Populate the form fields with the property data
+               document.querySelector('input[name="title"]').value = property.title; // Adjust field names accordingly
+               document.querySelector('input[name="location"]').value = property.location; // Adjust field names accordingly
+               document.querySelector('input[name="price"]').value = property.price;
+               document.querySelector('input[name="owner"]').value = property.owner;
+               document.querySelector('input[name="contact"]').value = property.contact;
+               document.querySelector('select[name="type"]').value = property.type;
+               document.querySelector('select[name="status"]').value = property.status;
+               document.querySelector('input[name="date"]').value = property.date;
+               document.querySelector('input[name="rooms"]').value = property.rooms;
+               document.querySelector('input[name="bathrooms"]').value = property.bathrooms;
+               document.querySelector('input[name="balconies"]').value = property.balconies;
+               document.querySelector('input[name="area"]').value = property.area;
+               document.querySelector('select[name="furnishing"]').value = property.furnishing;
+               document.querySelector('textarea[name="description"]').value = property.description;
+
+            } catch (error) {
+               console.error('Error fetching property data:', error.message);
+            }
+         }
+
+      });
+
+      form.addEventListener('submit', async (event) => {
+         event.preventDefault(); // Prevent default form submission
+
+         const formData = new FormData(form);
+         try {
+
+            const response = await fetch('http://localhost:3000/api/property', {
+               method: 'POST',
+               body: formData
+            });
+
+            console.log("Response: ", response)
+
+            if (!response.ok) {
+               throw new Error('Failed to post property');
+            }
+
+            const property = response.json(); // Assuming your backend returns the saved property data
+            window.location.href = 'Client/listings.html'; // Redirect to the desired page after successful submission
+            alert('Property posted successfully:', property?.title);
+            // Optionally, you can redirect or show a success message here
+            
+
+         } catch (error) {
+            console.error('Error posting property:', error.message);
+            // Handle error (show error message, log, etc.)
+         }
+      });
+   </script>
+
+
+</body>
+
+</html>
